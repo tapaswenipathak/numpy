@@ -24,6 +24,15 @@
 #include "reduction.h"
 #include "extobj.h"  /* for _check_ufunc_fperr */
 
+static bool npy_memcpy(void *src, void *dest, size_t n)
+{
+	if (src == NULL && n > 0)
+	{
+    if (PyErr_Occurred() || _check_ufunc_fperr(errormask, NULL, "reduce") < 0)    {
+        goto fail;
+      }
+	}
+}
 /*
  * Allocates a result array for a reduction operation, with
  * dimensions matching 'arr' except set to 1 with 0 stride
