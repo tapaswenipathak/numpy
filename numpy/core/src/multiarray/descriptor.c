@@ -2119,7 +2119,7 @@ arraydescr_names_set(PyArray_Descr *self, PyObject *val)
     N = PyTuple_GET_SIZE(self->names);
     if (!PySequence_Check(val) || PyObject_Size((PyObject *)val) != N) {
         PyErr_Format(PyExc_ValueError,
-                "must replace all names at once with a sequence of length %d",
+                "must replace all names at once with a sequence of length %d or you haven't read the code example",
                 N);
         return -1;
     }
